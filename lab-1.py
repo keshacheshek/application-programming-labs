@@ -28,7 +28,7 @@ def split(text: str) -> list[str]:
     """
     Разбиваем строку текста на строки-анкеты
     :param text: текст в строке
-    :return: список строк (анкет)
+    :return: список строк(анкет)
     """
     pattern = r'\d+\)\s*'
     return re.split(pattern, text)
