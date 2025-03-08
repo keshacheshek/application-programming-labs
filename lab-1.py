@@ -26,9 +26,9 @@ def read_file(name_file: str) -> str:
 
 def split(text: str) -> list[str]:
     """
-
-    :param text:
-    :return:
+    Разбиваем строку текста на строки-анкеты
+    :param text: текст в строке
+    :return: список строк (анкет)
     """
     pattern = r'\d+\)\s*'
     return re.split(pattern, text)
@@ -36,9 +36,9 @@ def split(text: str) -> list[str]:
 
 def search(s_list: list[str]) -> list[str]:
     """
-
-    :param s_list:
-    :return:
+    Выполняем поиск фамилии по анкетам
+    :param s_list: список строк (анкет)
+    :return: список подходящих строк (анкет)
     """
     pattern = r'Фамилия: Иванов[а]?'
     summary_list = list()
@@ -50,9 +50,8 @@ def search(s_list: list[str]) -> list[str]:
 
 def print_list(s_list: list[str]) -> None:
     """
-
-    :param s_list:
-    :return:
+    выводим в консоль строки листа
+    :param s_list: лист со строками
     """
     for check in s_list:
         print(check)
