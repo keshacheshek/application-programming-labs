@@ -13,7 +13,7 @@ class ImageIterator:
         self.index = 0
 
         # Если source - это файл-аннотация
-        if os.path.isfile(path_file_dir):
+        if os.path.isfile(path_file_dir) and os.path.splitext(path_file_dir)[1] == ".csv":
             with open(path_file_dir, mode='r', encoding='utf-8') as file:
                 reader = csv.reader(file)
                 next(reader)  # Пропускаем заголовок
@@ -22,6 +22,8 @@ class ImageIterator:
         # Если source - это папка
         elif os.path.isdir(path_file_dir):
             self.image_paths = [os.path.join(path_file_dir, file) for file in os.listdir(path_file_dir)]
+        else:
+            raise ValueError("Указан неверный путь")
 
 
     def __iter__(self) -> 'ImageIterator':

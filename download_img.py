@@ -2,9 +2,11 @@ import os
 
 from icrawler.builtin import GoogleImageCrawler
 
-def download_img(keyword: str, num_img = 50, save_dir: str="image",) -> None:
+
+def download_img(keyword: str, num_img = 50, save_dir: str="image") -> None:
     """
     Скачиваем изображения в нужную папку
+    :param keyword: ключевое слово для поиска изображений
     :param save_dir: папка в которую сохраняются изображения
     :param num_img: количество изображений
     """

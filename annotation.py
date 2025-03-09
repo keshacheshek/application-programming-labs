@@ -1,16 +1,14 @@
 import csv
 import os
 
+
 def get_relative_path(absolute_path: str) -> str:
     """
     Получаем относительный путь до изображений
     :param absolute_path: полный путь к изображениям
     :return: путь к файлу относительно исполняемого файла
     """
-    current_dir = os.getcwd()
-    if current_dir in absolute_path:
-        return absolute_path.replace(current_dir + '\\', '')
-    return absolute_path
+    return os.path.relpath(absolute_path)
 
 
 def create_annotation(files_folder: str, annotation_path: str="annotation.csv") -> None:

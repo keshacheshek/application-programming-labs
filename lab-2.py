@@ -23,13 +23,13 @@ def arg_parser() -> tuple[str, str, str]:
     parser.add_argument('--annotation_path', type=str, default='annot.csv', help='the path to the annotation file(absolute/relative)')
     parser.add_argument('--save_folder', type=str, default='images', help='the path to the folder to save(absolute/relative)')
     args = parser.parse_args()
-    return args.keyword, args.save_folder, args.annotation_path
+    return args.keyword, args.annotation_path, args.save_folder
 
 
 def main():
     try:
         keyword, annot_path, save_folder = arg_parser()
-        download_img(keyword, 10, save_folder)
+        download_img(keyword, 50, save_folder)
         create_annotation(save_folder, annot_path)
 
         print("Annotation iterator:")
@@ -39,7 +39,7 @@ def main():
         print_list(ImageIterator(save_folder))
     except Exception as e:
         print(f"Error: {e}")
-        return
+
 
 if __name__ == '__main__':
     main()
