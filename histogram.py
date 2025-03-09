@@ -10,10 +10,7 @@ def create_histogram(img: ndarray) -> list:
     :param img:изображение в виде матрицы пикселей
     :return:список гистограмм
     """
-    histogram_of_channels = []
-    for i in range(3):
-        histogram_of_channels.append(cv2.calcHist([img], [i], None, [256], [0, 256]))
-    return histogram_of_channels
+    return [cv2.calcHist([img], [i], None, [256], [0, 256]) for i in range(3)]
 
 
 def show_histograms_of_channels(histograms: list) -> None:
