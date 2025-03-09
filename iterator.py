@@ -23,11 +23,13 @@ class ImageIterator:
         elif os.path.isdir(path_file_dir):
             self.image_paths = [os.path.join(path_file_dir, file) for file in os.listdir(path_file_dir)]
 
+
     def __iter__(self) -> 'ImageIterator':
         """
         :return: возврат текущего объекта класса
         """
         return self
+
 
     def __next__(self) -> str:
         """
